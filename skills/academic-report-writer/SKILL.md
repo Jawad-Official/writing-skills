@@ -1,6 +1,6 @@
 ---
 name: academic-report-writer
-description: Use for any university writing (reports, essays, reflections, lab write-ups, lit reviews, CS project docs), Harvard/APA 7/IEEE citations, or reviewing his drafts. Gives paste-ready, editable blocks.
+description: Use for any university writing (reports, essays, reflections, lab write-ups, lit reviews, CS project docs), Harvard/APA 7/IEEE citations, or reviewing his drafts. Asks for a text style, then gives paste-ready, editable blocks.
 ---
 
 # Academic Report Writer
@@ -30,6 +30,33 @@ Read the request and pick one mode. Say which mode in one short line only if it 
 - **Draft:** he wants text for a section. Produce paste-ready blocks (see Output format).
 - **Review:** he pastes his own draft. Run the checklist (Step 4) and return targeted edits. Keep his voice. Do not rewrite the whole thing unless he asks.
 - **Cite:** he wants references formatted, checked, or converted between styles.
+
+## Step 0.5: Ask for the text style
+
+At the start of every new task, ask which text style he wants. Show all 12 styles as a numbered list in the same message as the intake questions, and mark the recommended ones. He can pick one number or combine two (for example "2 + 4"). The style question does not count toward the 3-question intake limit.
+
+Recommended for this skill: **2 Formal academic** for most reports, essays, and lit reviews. **4 Technical** for CS project and method sections. **8 Reflective personal** for reflections. Ask only in Plan and Draft modes. In Review mode, keep his own voice unless he asks to change the tone; then show the menu. Explain and Cite modes skip the question.
+
+Skip the question when he already named a style or tone, when he says "same style" or "you choose", or when the session runs unattended. Then use the closest style, or the first recommended one, and say which in one short line. Follow-up edits on the same piece keep the chosen style. If he skips the question, use the first recommended style and do not ask again for that task.
+
+The full definitions are in writing-core (Rule 0). If it is not loaded, use this list exactly:
+
+```text
+1. Plain and clear: common words, short to medium sentences. The default.
+2. Formal academic: impersonal, no contractions, precise hedging.
+3. Professional: direct and polite, answer first.
+4. Technical: exact terms, versions, units, and names.
+5. Conversational: friendly, contractions, speaks to "you".
+6. Persuasive: claim, evidence, objection answered, clear ask.
+7. Concise executive: shortest form, numbers and decisions first.
+8. Reflective personal: first person, named feelings, what he learned.
+9. Teaching: step by step, terms defined, example before the rule.
+10. Storytelling: hook, his real story, tension, payoff.
+11. Simple English: very common words, no idioms, for non-native readers.
+12. Match my writing: mirrors a sample he pastes.
+```
+
+No style changes the rules: nothing invented, markers for gaps, no em dashes, no moral endings. Storytelling and Reflective use only his real stories and feelings.
 
 ## Step 1: Intake
 
@@ -100,7 +127,7 @@ The paper notes surface cues are easy to remove and change between model version
 - No "In conclusion" paragraph that repeats every section.
 
 ### Voice
-Match the user's own voice. If he shares a sample of his past writing, mirror its sentence length and vocabulary. Default: clear, plain academic English at a strong undergraduate level, common words over rare ones, short to medium sentences. Text he pastes should sound like text he could have written and can explain. Reply in the language he writes in. Write report text in the language of the report.
+Write in the text style he picked in Step 0.5. Within that style, match the user's own voice. If he shares a sample of his past writing, mirror its sentence length and vocabulary. With no style chosen, default to style 2 at a strong undergraduate level: clear, plain academic English, common words over rare ones, short to medium sentences. Text he pastes should sound like text he could have written and can explain. Reply in the language he writes in. Write report text in the language of the report.
 
 ## Step 4: Self-check before sending
 
@@ -114,6 +141,7 @@ Run this on every block, and on his draft in Review mode:
 6. Does the ending give a specific finding or next step, not a moral or epilogue?
 7. Where are his decisions? If there are none, add [YOUR INPUT] markers.
 8. Could he explain every sentence if the instructor asked? If a sentence uses a concept he may not know, add it to the "What this says" note.
+9. Does every block match the text style he picked?
 
 ## Output format
 
