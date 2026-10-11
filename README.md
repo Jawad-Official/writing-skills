@@ -1,4 +1,4 @@
-# Writing Skills
+# Writing Toolkit Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Skills](https://img.shields.io/badge/skills-4-blue)
@@ -16,6 +16,7 @@ The skills push Claude away from generic AI defaults and toward writing built on
 - [The skills](#the-skills)
 - [How the skills fit together](#how-the-skills-fit-together)
 - [How a request flows](#how-a-request-flows)
+- [Text styles](#text-styles)
 - [Research basis](#research-basis)
 - [Markers](#markers)
 - [Before and after](#before-and-after)
@@ -39,8 +40,9 @@ Two findings from the paper shaped these skills:
 1. **The generic default comes from missing inputs.** The model fills gaps with the most typical choice. The fix is to give it what only you have: your data, your decisions, what failed, your opinion.
 2. **Paraphrasing does not fix it.** Rewriting clichés and purple prose barely changed how AI-like the writing was at the structural level. What makes writing yours is its decisions (which evidence, what order, what conclusion), not its synonyms.
 
-So these skills do three things:
+So these skills do four things:
 
+- **Ask which text style you want** at the start of every new task, from a menu of 12.
 - **Ask for your material first**, and leave clear markers where it is missing instead of inventing anything.
 - **Write against known AI defaults:** over-explaining, vague references, tidy stories with no loose ends, and decorative language.
 - **Give you paste-ready text** plus pointers to the structural choices worth making your own.
@@ -75,6 +77,7 @@ flowchart TD
 
 ```mermaid
 flowchart LR
+    S["Pick a text style<br/>from 12 options"] --> A
     A["Your inputs<br/>data, notes, decisions"] --> B["Skeleton first<br/>claims, evidence, limits"]
     B --> C["Draft against<br/>AI defaults"]
     C --> D["Self-check<br/>nothing invented"]
@@ -83,6 +86,31 @@ flowchart LR
 ```
 
 The skeleton step copies the paper's own method. StoryScope turned every story into a structured template before comparing anything, because templates force reasoning about content instead of wording.
+
+## Text styles
+
+At the start of every new writing task, Claude shows this menu and asks which style you want. Reply with one number, or combine two (for example `2 + 4`: formal register with technical precision). Follow-up edits on the same piece keep the style you picked.
+
+| # | Style | What it does | Recommended in |
+|---|---|---|---|
+| 1 | Plain and clear | Common words, short to medium sentences, active voice. The default | Any skill |
+| 2 | Formal academic | Impersonal, no contractions, precise hedging, field terms defined once | `academic-report-writer` |
+| 3 | Professional | Direct and polite, answer first, no slang | `work-report-writer`, emails |
+| 4 | Technical | Exact terms, versions, units, parameters, and names | `academic-report-writer`, `work-report-writer` |
+| 5 | Conversational | Friendly, contractions, speaks to "you" | `script-writer`, posts |
+| 6 | Persuasive | Claim, strongest evidence, objection answered, clear ask | Proposals, cover letters |
+| 7 | Concise executive | Shortest form, numbers and decisions first | Status updates, memos |
+| 8 | Reflective personal | First person, named feelings tied to real moments | Reflections, personal statements |
+| 9 | Teaching | Step by step, terms defined, example before the rule | Lectures, workshops |
+| 10 | Storytelling | Hook, your real story, tension, payoff | Videos, talks |
+| 11 | Simple English | Very common words, no idioms, for non-native readers | Instructions, notices |
+| 12 | Match my writing | Mirrors a sample of your writing that you paste | Any skill |
+
+Claude skips the question when you already named a style ("make it formal"), when you say "same style" or "you choose", when the task has no text for you to use (explaining a concept, formatting citations), or when the session runs unattended. It then uses the closest or the first recommended style and says which in one line.
+
+No style turns off the core rules. Every style still uses your real material only, leaves markers for gaps, and avoids the AI defaults. Storytelling and Reflective never invent stories or feelings.
+
+The full definitions live in [`writing-core`](skills/writing-core/SKILL.md) (Rule 0). Each family skill carries a short copy of the list so it still works alone.
 
 ## Research basis
 
@@ -175,7 +203,7 @@ mkdir -p ~/.claude/skills
 cp -r skills/* ~/.claude/skills/
 ```
 
-Claude loads a skill when your request matches its description. You can also run one directly, for example `/academic-report-writer`.
+Claude loads a skill when your request matches its description, then asks which text style you want. You can also run one directly, for example `/academic-report-writer`.
 
 For a single project, use `.claude/skills/` inside that repository instead.
 
@@ -208,6 +236,7 @@ You do not need to name the skill. Describe the task and Claude picks the matchi
 
 ## Customizing
 
+- **Text styles:** add or rename a style in the menu under Rule 0 in `skills/writing-core/SKILL.md`, then update the short list in each family skill's "Step 0.5" so they stay in sync.
 - **Voice:** each skill defaults to clear, plain English. Share a sample of your own writing in a conversation and the skills mirror it. To make it permanent, edit the "Voice" section in `skills/writing-core/SKILL.md`.
 - **Add a report type:** add a section under "Report types" in `academic-report-writer`, or under "Variants" in `work-report-writer`.
 - **Citation style:** your university's style guide always wins over the examples in `academic-report-writer`. Replace the examples if your university uses a local Harvard variant.
@@ -217,7 +246,7 @@ You do not need to name the skill. Describe the task and Claude picks the matchi
 ## Repository structure
 
 ```text
-writing-skills/
+writing-toolkit-skills/
 ├── README.md
 ├── LICENSE
 ├── docs/
