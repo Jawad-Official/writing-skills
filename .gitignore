@@ -1,0 +1,7 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Packaged skills (build locally with the command in the README)
+dist/
+*.zip
