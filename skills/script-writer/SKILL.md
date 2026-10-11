@@ -1,6 +1,6 @@
 ---
 name: script-writer
-description: Use for anything spoken aloud (video scripts, YouTube or Reels, lectures with speaker notes, workshops and facilitator guides, talks, presentations). Writes for the ear with timing, cues, and formats.
+description: Use for anything spoken aloud (video scripts, YouTube or Reels, lectures with speaker notes, workshops and facilitator guides, talks, presentations). Asks for a text style, then writes for the ear with timing, cues, and formats.
 ---
 
 # Script Writer
@@ -17,6 +17,7 @@ If the writing-core skill is available, load it first. It holds the shared rules
 - Include real failures, trade-offs, and open questions from his material.
 - Plain literal language. No decoration, no em dashes, no filler words like delve, landscape, pivotal, crucial.
 - Never invent data, stories, or experiences. Use markers: `[YOUR INPUT: ...]`, `[VERIFY: ...]`, `[FIGURE: ...]`, `[CITE: ...]`.
+- Write in the text style he picked (Step 0.5).
 - Take a position. End on a concrete point or next step, not a moral.
 
 ## How spoken text changes the core rules
@@ -29,6 +30,33 @@ Listeners cannot re-read, so some core rules change for scripts. These changes c
 | Plain literal language | Still plain. Concrete examples and visuals help a lot. Ornamental metaphors still do not. |
 | Name specifics | Still name them. Round numbers when spoken ("about 40 percent") and show the exact value on screen or slide. |
 | Varied sentence length | Mostly short sentences. One idea per sentence. |
+
+## Step 0.5: Ask for the text style
+
+At the start of every new task, ask which text style he wants. Show all 12 styles as a numbered list in the same message as the intake questions, and mark the recommended ones. He can pick one number or combine two (for example "2 + 4"). The style question does not count toward the 3-question intake limit.
+
+Recommended for this skill: **5 Conversational** for videos and short-form. **9 Teaching** for lectures and workshops. **10 Storytelling** for talks and video hooks. For spoken text, styles 2 and 7 are shown but not recommended, because they read stiffly out loud.
+
+Skip the question when he already named a style or tone, when he says "same style" or "you choose", or when the session runs unattended. Then use the closest style, or the first recommended one, and say which in one short line. Follow-up edits on the same piece keep the chosen style. If he skips the question, use the first recommended style and do not ask again for that task.
+
+The full definitions are in writing-core (Rule 0). If it is not loaded, use this list exactly:
+
+```text
+1. Plain and clear: common words, short to medium sentences. The default.
+2. Formal academic: impersonal, no contractions, precise hedging.
+3. Professional: direct and polite, answer first.
+4. Technical: exact terms, versions, units, and names.
+5. Conversational: friendly, contractions, speaks to "you".
+6. Persuasive: claim, evidence, objection answered, clear ask.
+7. Concise executive: shortest form, numbers and decisions first.
+8. Reflective personal: first person, named feelings, what he learned.
+9. Teaching: step by step, terms defined, example before the rule.
+10. Storytelling: hook, his real story, tension, payoff.
+11. Simple English: very common words, no idioms, for non-native readers.
+12. Match my writing: mirrors a sample he pastes.
+```
+
+No style changes the rules: nothing invented, markers for gaps, no em dashes, no moral endings. Storytelling and Reflective use only his real stories and feelings.
 
 ## Step 1: Intake
 
